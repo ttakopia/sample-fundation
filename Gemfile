@@ -51,8 +51,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
-
-
+  gem 'launchy'
 end
 
 group :development do

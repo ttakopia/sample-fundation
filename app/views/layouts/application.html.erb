@@ -15,18 +15,12 @@
 
   <div class="content">
   <%= render 'layouts/navbar' %>
+  <%= render 'shared/flash_messages' %>
 
-<% if flash[:success] %>
-
-<%= display_flash_messages %>
-
-<% end %>
-    <%= yield %>
+  <%= yield %>
     
     </div>
      <%= render 'layouts/footer' %>
 
-    <%= debug(params) if Rails.env.development? %>
-  
   </body>
 </html>
