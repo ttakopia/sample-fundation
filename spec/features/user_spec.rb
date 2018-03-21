@@ -26,6 +26,6 @@ end
 		expect(current_path).to eq root_path
 		expect(page).to have_content('Bye. See you soon')
 		click_link 'Log In'
-		save_and_open_page
+		#save_and_open_page
 	end
 end
