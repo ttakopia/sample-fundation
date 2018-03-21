@@ -8,7 +8,6 @@ feature 'User Account' do
 	scenario 'a new user signs up' do
 		sign_up
 		expect(page).to have_content('User created successfully')
-		save_and_open_page
 	end
 
 	scenario 'registered user logs in' do
@@ -26,5 +25,7 @@ end
 		click_link 'Log out'
 		expect(current_path).to eq root_path
 		expect(page).to have_content('Bye. See you soon')
+		click_link 'Log In'
+		save_and_open_page
 	end
 end
