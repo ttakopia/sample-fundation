@@ -6,6 +6,12 @@ FactoryGirl.define do
   	password 'foobar'
   	password_confirmation 'foobar'
 
+  factory :other_user do
+    first_name 'Jane'
+    last_name 'Gordon'
+    email 'jgordon@example.com'
+    password 'foobar'
+    password_confirmation 'foobar'
 
   factory :invalid_user do
   	first_name 'J'
@@ -14,5 +20,6 @@ FactoryGirl.define do
   	password 'foo'
   	password_confirmation 'foo'
   end
+end
 end
 end
