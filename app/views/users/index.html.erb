@@ -1,1 +1,37 @@
-<h1>Index</h1>
+<%= provide(:title, 'All users') %>
+
+<div class="row">
+	<div class="small-12 medium-12 large-12 columns">
+		<h1 class="title">All Users</h1>
+		<%= will_paginate @collection, renderer: FoundationPagination::Rails %>
+<table>
+  <thead>
+    <tr>
+      <th width="100">Gravatar</th>
+      <th width="100">Last Name</th>
+      <th width="100">First_Name</th>
+      <th width="100">Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+  		<tr>
+  			<td><%= gravatar_for user, size: 50 %></td>
+  			<td><%= link_to user.last_name, user %></td>
+  			<td><%= user.first_name %></td>
+  			<td><%= user.email %></td>
+  		</tr>
+  <% end %>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+  </tbody>
+</table>
+
+	<%= will_paginate @collection, renderer: FoundationPagination::Rails %>
+
+	</div>
+</div>

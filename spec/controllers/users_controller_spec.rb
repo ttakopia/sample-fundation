@@ -34,6 +34,7 @@ describe UsersController, type: :controller do
 			expect(@user.first_name).to eq('Shohei')
 			expect(@user.last_name).to eq('Kihara')
 		end
+	end
 
 		context 'only a logged user can edit and update' do
 		
@@ -67,6 +68,13 @@ describe UsersController, type: :controller do
  			expect(user_path).to redirect_to root_url
 		end
 		end
+
+	context 'show #index' do
+ 		it 'redirects index when user not logged in' do
+ 			get :index, params: { id: @user, user: FactoryGirl.attributes_for(:user) }
+ 			users_path
+ 			expect(users_path).to redirect_to login_url
+ 		end
 	end
 
 	# Log in as a particular user

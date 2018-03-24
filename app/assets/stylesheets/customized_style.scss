@@ -88,3 +88,15 @@ ul.dropdown.menu li a:hover {
 .gravatar_deit {
 	margin: 2rem 0;
 }
+
+// TABLE USERS INDEX
+table {
+	margin-top: 2rem;
+	border: 2px solid black;
+	box-shadow: 3px 3px 5px #888888;
+	table-layout: fixed;
+}
+
+table thead {
+	background-color: #ffb70d;
+}
