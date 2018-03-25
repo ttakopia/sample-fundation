@@ -8,7 +8,7 @@ describe UsersController, type: :controller do
 			@other_user = FactoryGirl.create(:other_user)
 		end
 
-		context 'valid attributes' do
+	context 'valid attributes' do
 
 		 it 'assings the requested user to @user' do
 		 	log_in_as(@user)
@@ -36,7 +36,7 @@ describe UsersController, type: :controller do
 		end
 	end
 
-		context 'only a logged user can edit and update' do
+	context 'only a logged user can edit and update' do
 		
 		it 'redirects edit when not logged in' do
 			get :edit, params: { id: @user, user: FactoryGirl.attributes_for(:user) }
@@ -62,7 +62,7 @@ describe UsersController, type: :controller do
 		end
 		end
 
-		context 'only the legitmate user can edit and update' do
+	context 'only the legitmate user can edit and update' do
 		
 		it 'redirect edit when logged as the wrong user' do
 			log_in_as(@other_user)
@@ -86,6 +86,29 @@ describe UsersController, type: :controller do
  			expect(users_path).to redirect_to login_url
  		end
 	end
+
+	context 'DELETE #destroy' do
+ 		it 'redirects destroy when not logged in' do
+ 			process :destroy, method: :delete, params: { id: @user, user: FactoryGirl.attributes_for(:user) }
+ 			expect(@user).to redirect_to login_url
+ 		end
+
+ 		it 'redirects destroy when logged in as an admin' do
+ 		log_in_as(@other_user)
+ 		expect {
+ 			process :destroy, method: :delete, params: { id: @other_user, user: FactoryGirl.attributes_for(:other_user)}
+ 		}.not_to change(User, :count)
+ 		expect(@other_user).to redirect_to root_url
+		end
+
+		it 'deletes the user if logged in as admin' do
+		log_in_as(@user)
+		expect {
+ 			process :destroy, method: :delete, params: { id: @other_user, user: FactoryGirl.attributes_for(:other_user)}
+ 		}.to change(User, :count).by(-1)
+		end
+	end
+
 
 	# Log in as a particular user
 	def log_in_as(user)
