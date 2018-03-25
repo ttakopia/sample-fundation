@@ -5,6 +5,7 @@ FactoryGirl.define do
   	email 'john@example.com'
   	password 'foobar'
   	password_confirmation 'foobar'
+    admin true
 
   factory :other_user do
     first_name 'Jane'
@@ -12,6 +13,7 @@ FactoryGirl.define do
     email 'jgordon@example.com'
     password 'foobar'
     password_confirmation 'foobar'
+    admin false
 
   factory :invalid_user do
   	first_name 'J'

@@ -11,6 +11,9 @@
       <th width="100">Last Name</th>
       <th width="100">First_Name</th>
       <th width="100">Email</th>
+      <% if current_user.admin? %>
+      <th width="100">Delete a user</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -21,13 +24,11 @@
   			<td><%= link_to user.last_name, user %></td>
   			<td><%= user.first_name %></td>
   			<td><%= user.email %></td>
+        <% if current_user.admin? && !current_user?(user) %>
+        <td><%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you really sure?'} %></td>
+        <% end %>
   		</tr>
   <% end %>
-    <tr>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-      <td>Content Goes Here</td>
-    </tr>
   </tbody>
 </table>
 

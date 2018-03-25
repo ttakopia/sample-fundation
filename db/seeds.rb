@@ -1,8 +1,9 @@
-User.create!(first_name: 'Pierre',
-    		last_name: 'Liard',
-    		email: 'jgordon@example.com',
+User.create!(first_name: 'shohei',
+    		last_name: 'kihara',
+    		email: 'shohei@examplea.com',
     		password: 'foobar',
-    		password_confirmation: 'foobar')
+    		password_confirmation: 'foobar',
+    		admin: true)
 
 99.times do |n|
 	first_name = Faker::Name.first_name

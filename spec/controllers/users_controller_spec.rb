@@ -50,21 +50,31 @@ describe UsersController, type: :controller do
  			expect(flash[:alert]).not_to be_nil
  			expect(@user).to redirect_to login_url
 		end
+
+		it 'does not allow the admin attribute to be edited' do
+			log_in_as(@other_user)
+			process :update, method: :patch, params: { id: @other_user, user: FactoryGirl.attributes_for(:other_user,
+																									first_name: 'Shohei',last_name: 'Kihara', admin: true)}
+			@other_user.reload
+			expect(@other_user.first_name).to eq('Shohei')
+			expect(@other_user.last_name).to eq('Kihara')
+			expect(@other_user.admin).not_to eq(true)
+		end
 		end
 
 		context 'only the legitmate user can edit and update' do
 		
 		it 'redirect edit when logged as the wrong user' do
 			log_in_as(@other_user)
-			get :edit, params: { id: @user, user: FactoryGirl.attributes_for(:other_user) }
-			expect(flash).to match_array([])
+			get :edit, params: { id: @user, user: FactoryGirl.attributes_for(:user) }
+			expect(flash).not_to be present?
 			expect(edit_user_path).to redirect_to root_url
 		end
 
 		it 'redirects update when logged as the wrong user' do
 			log_in_as(@other_user)
- 			process :update, method: :patch, params: { id: @user, user: FactoryGirl.attributes_for(:other_user) }
- 			expect(flash).to match_array([])
+ 			process :update, method: :patch, params: { id: @user, user: FactoryGirl.attributes_for(:user) }
+ 			expect(flash).not_to be present?
  			expect(user_path).to redirect_to root_url
 		end
 		end
