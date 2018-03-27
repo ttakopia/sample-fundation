@@ -63,8 +63,7 @@ describe User, type: :model do
 		end
 
 		it 'should return false for a user with nil digest' do
-			@user.password = @user.password_confirmation = 'a' * 5
-			expect(@user).not_to be_valid
+			expect(@user).not_to be_valid if @user.authenticated?(:remember, '')
 		end
 	end
 end
