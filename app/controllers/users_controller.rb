@@ -23,7 +23,7 @@ def create
 		UserMailer.account_activation(@user).deliver_now
 		# log_in(@user)
 		# flash[:success] = 'User created successfully'
-		flash[:primary] = 'Please check your email to activate your'
+		flash[:prymary] = 'Please check your email to activate your account'
 		redirect_to root_path
 	else
 		render 'new'
