@@ -41,6 +41,8 @@ gem 'foundation-rails', '~> 6.4', '>= 6.4.1.3'
 gem 'foundation_rails_helper', '~> 3.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
+gem 'figaro'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

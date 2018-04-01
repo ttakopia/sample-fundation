@@ -36,8 +36,8 @@ Rails.application.configure do
     address: 'smtp.example.com',
     port:    465,
     ssl:     true,
-    user_name: 'your_username',
-    password:  'your_password',
+    user_name: ENV['EMAIL_USERNAME'],
+    password:  ENV['EMAIL_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
   }
