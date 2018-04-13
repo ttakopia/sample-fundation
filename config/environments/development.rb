@@ -33,7 +33,7 @@ Rails.application.configure do
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    address: 'smtp.example.com',
+    address: 'smtp.gmail.com',
     port:    465,
     ssl:     true,
     user_name: ENV['EMAIL_USERNAME'],
