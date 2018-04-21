@@ -18,3 +18,11 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+window.setTimeout(function(){
+	$(".success, .alert, .primary").fadeTo('slow', 0).slideUp('slow',
+		function(){
+			$(this).remove()
+		})
+
+}, 3000);

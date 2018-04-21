@@ -1,5 +1,35 @@
+<%= provide(:title, 'Home') %>
+
 <div class="row">
 	<div class="small-12 medium-12 large-12 columns">
-		<h1 class="title">Welcome to the authentication app</h1>
-	</div>
+
+	<div class="orbit" role="region" aria-label="Authentication App Pictures" data-orbit>
+
+	<ul class="orbit-container">
+      <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+      <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+
+      <li class="is-active orbit-slide">
+          <img class="orbit-image" src="assets/one.jpg" alt="Space">
+      </li>
+
+      <li class="orbit-slide">
+          <img class="orbit-image" src="assets/two.jpg" alt="Space">
+      </li>
+
+      <li class="orbit-slide">
+          <img class="orbit-image" src="assets/three.jpg" alt="Space">
+      </li>
+
+      <li class="orbit-slide">
+          <img class="orbit-image" src="assets/four.jpg" alt="Space">
+      </li>
+    </ul>
+    <div id="content">
+    	<h1>Welcome to the Authetication App</h1>
+    	<%= link_to 'Sign up now', signup_path, class: 'button' %>
+    </div>
+    </div>
+  </div>
+</div>
 </div>
